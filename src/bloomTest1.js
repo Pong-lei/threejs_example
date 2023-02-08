@@ -44,7 +44,8 @@ export default class Bloom extends Module{
     };
     this.object.stats = new Stats()
     this.bloomGroup.add(new THREE.AmbientLight(0x404040))
-    
+    word.renderer.setClearColor(0x000000, 1);
+
     word.renderer.toneMapping = THREE.ReinhardToneMapping
     word.renderer.toneMappingExposure = Math.pow( 1.6, 4.0 );
     

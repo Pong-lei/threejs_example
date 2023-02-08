@@ -44,7 +44,7 @@ export default class City extends Module{
     });
   }
   destory(){
-    this.gui.destory()
+    this.gui.destroy()
     this.cityGroup.traverse(child=>{
       if(child.isMesh){
         child.material.dispose()

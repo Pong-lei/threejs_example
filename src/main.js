@@ -5,9 +5,20 @@ import CameraRomaing from './camera_roaming'
 import City from './city.js';
 import Rader from './shader_rader.js';
 
+import SwitchEffect from './switch_effect/index.js'
+
 
 let word = new Sketch("container");
 word.axesHelper()
+
+
+let switchEffect = new SwitchEffect('switchEffect',word.getContainer())
+setTimeout(()=>{
+  let res = word.registerModule(switchEffect)
+},1000)
+if(!word.renderFlag) word.render()
+
+
 let dom = document.querySelector('#btn')
 dom.addEventListener('click',(e)=>{
   
@@ -81,6 +92,16 @@ dom.addEventListener('click',(e)=>{
     case '12':
       word.unregisterModule('rader')
       break 
+    case '13':
+      let switchEffect = new SwitchEffect('switchEffect',word.getContainer())
+      setTimeout(()=>{
+        let res = word.registerModule(switchEffect)
+      },1000)
+      if(!word.renderFlag) word.render()
+      break
+    case '14':
+      word.unregisterModule('switchEffect')
+      break   
   }
 })
 

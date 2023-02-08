@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { webpack } = require('webpack');
 
 module.exports = {
   mode:'development',
@@ -11,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(glsl|vs|fs|vert|frag)$/i,
+        test: /\.(glsl|vs|fs|vert|frag|gltf)$/i,
         exclude: /node_modules/,
         use: ["raw-loader"],
       },
@@ -23,9 +24,16 @@ module.exports = {
     ]
   },
   devServer: {
-    port:5555
+    port:5555,
+    client:{
+      overlay:{
+        warnings:false
+      }
+    }
   },
-  plugins: [new HtmlWebpackPlugin({
-    template:'./index.html'
-  })]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template:'./index.html'
+    })
+  ]
 };

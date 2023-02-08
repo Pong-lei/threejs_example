@@ -235,13 +235,14 @@ export default class Sketch {
       if (this.paused) return;
       this.time += 0.05;
       this.renderFlag = true
-      this.#renderer.render(this.#scene, this.#camera);
+      // this.#renderer.render(this.#scene, this.#camera);
       this.#controls.update()
       // 注册的子模块钩子
       for(const [key,modules] of this.#chiledModules){
         modules.renderThings && modules.renderThings()
+        
       }
-  
+      this.#renderer.render(this.#scene, this.#camera);
       requestAnimationFrame(this.render.bind(this));
 
   }

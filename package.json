@@ -6,6 +6,7 @@
     "lodash": "^4.17.21",
     "raw-loader": "^4.0.2",
     "three": "^0.143.0",
+    "three-extend-material": "^1.0.0",
     "three-orbit-controls": "^82.1.0",
     "webpack": "^5.74.0"
   },
