@@ -12,12 +12,13 @@ let word = new Sketch("container");
 word.axesHelper()
 
 
-let switchEffect = new SwitchEffect('switchEffect',word.getContainer())
-setTimeout(()=>{
-  let res = word.registerModule(switchEffect)
-},1000)
-if(!word.renderFlag) word.render()
+// let switchEffect = new SwitchEffect('switchEffect',word.getContainer(),{shadowRender:false})
+// setTimeout(()=>{
+//   let res = word.registerModule(switchEffect)
+// },1000)
+// if(!word.renderFlag) word.render()
 
+let switchEffect = ''
 
 let dom = document.querySelector('#btn')
 dom.addEventListener('click',(e)=>{
@@ -93,13 +94,20 @@ dom.addEventListener('click',(e)=>{
       word.unregisterModule('rader')
       break 
     case '13':
-      let switchEffect = new SwitchEffect('switchEffect',word.getContainer())
+      if(switchEffect){
+        switchEffect.loadModel('/model/park.gltf')
+        return
+      }
+      switchEffect = new SwitchEffect('switchEffect',word.getContainer(),{shadowRender:false})
       setTimeout(()=>{
         let res = word.registerModule(switchEffect)
       },1000)
       if(!word.renderFlag) word.render()
       break
     case '14':
+      switchEffect.loadModel('/model/building2/scene_min.gltf')
+      break
+    case '15':
       word.unregisterModule('switchEffect')
       break   
   }

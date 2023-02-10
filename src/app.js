@@ -38,7 +38,7 @@ export default class Sketch {
     this.#camera = new THREE.PerspectiveCamera(
       70,
       window.innerWidth / window.innerHeight,
-      0.001,
+      5,
       1000
     );
     this.#camera.position.set(0, 0, 2);
